@@ -4,7 +4,8 @@
   "description": "cleaning up the initial code for final A3",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   "homepage": "https://github.com/Mickaykays1/DECO2017CU#readme",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
-    "bootstrap": "^5.0.1"
+    "bootstrap": "^5.0.1",
+    "express": "^4.17.1"
   }
 }
+
