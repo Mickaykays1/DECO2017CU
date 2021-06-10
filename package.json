@@ -1,0 +1,26 @@
+{
+  "name": "deco2017cu",
+  "version": "1.0.0",
+  "description": "cleaning up the initial code for final A3",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mickaykays1/DECO2017CU.git"
+  },
+  "keywords": [
+    "StudBud"
+  ],
+  "author": "Mickaykays",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mickaykays1/DECO2017CU/issues"
+  },
+  "homepage": "https://github.com/Mickaykays1/DECO2017CU#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.1"
+  }
+}
