@@ -233,6 +233,9 @@ article #timer {
 }
 
 /*Kanban Modal Styling */
+.kanban-text {
+  text-align: center;
+}
 
 .kanbanApp {
   width: 100%;
@@ -241,11 +244,19 @@ article #timer {
   box-sizing: border-box;
 }
 
-.kanban-header {
-  display: flex;
+#kanban-header {
+  height: max-content;
+  padding-bottom: 2em;
+}
+
+#kanban-header-input {
+  width: 100%;
   justify-content: center;
-  align-items: center;
-  height: 60px;
+}
+
+#kanban-header > h3 {
+  color: #fff;
+  justify-content: center;
 }
 
 .kanbanLists {
@@ -322,4 +333,17 @@ article #timer {
   background: #fff;
   border-radius: 0.5 rem;
   transition: 0.5s ease;
+}
+
+/* embedded music player styling */
+#studyBeatsText {
+  text-align: center;
+  color: #fff;
+}
+
+/* Dictionary Styling */
+
+#dictionaryText {
+  text-align: center;
+  color: #fff;
 }

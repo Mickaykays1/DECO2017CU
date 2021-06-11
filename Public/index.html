@@ -131,6 +131,14 @@
                         </div>
                     </div>
                 </div>
+                <div class = "container">
+                    <select name="timer" id ="timer">
+                        <option value="300">5:00</option>
+                        <option value="600">10:00</option>
+                        <option value="900">15:00</option>
+                        <option value="1200">20:00</option>
+                    </select>
+                </div>
             </div>
         </section>
         <!--Section Inc. Kanban, Reading List, Pomodoro-->
@@ -143,17 +151,25 @@
                     <div class="modal-content">
                         <div id="kanban-header">
                             <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
-                            <h5>Kanban Board</h5>
+                            <h3 class="kanban-text">Kanban Board</h3>
+                            <div id="kanban-header-input">
+                                <input type="text" class="add-task-kanban" width="80%">
+                            </div>
                         </div>
                         <div class= "kanbanApp">
                             <div class="kanbanLists">
                                 <div class="kanban-list">
+                                    <h5 class="kanban-text">Havent Done</h5>
                                     <div class= "kanban-list-item" draggable="true">List Item</div>
                                     <div class= "kanban-list-item" draggable="true">List Item2</div>
                                     <div class= "kanban-list-item" draggable="true">List Item3</div>
                                 </div>
-                                <div class="kanban-list"></div>
-                                <div class="kanban-list"></div>
+                                <div class="kanban-list">
+                                    <h5 class="kanban-text">Doing</h5>
+                                </div>
+                                <div class="kanban-list">
+                                    <h5 class="kanban-text">Done</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,7 +226,7 @@
                       <div class="modal-content">
                         <div id="dictionary-button">
                             <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
-                            <h5>Dictionary</h5>
+                            <h5 id="dictionaryText">Dictionary</h5>
                         </div>
                         <div class="modal-body container">
                             <div>
@@ -231,7 +247,7 @@
 
                                 e.preventDefault();
                                 const word = document.querySelector('#word').value;
-                                //const url = '`http://localhost:5000/${word}`'
+                                const url = '`http://localhost:5000/${word}`'
 
                                 let def = document.querySelector('#defenition')
                                 let examples = document.querySelector('.examples')
@@ -265,10 +281,11 @@
                       <div class="modal-content">
                         <div id="music-player-button">
                             <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
-                            <h5>Study Beats</h5>
+                            <h5 id = "studyBeatsText">Study Beats</h5>
                         </div>
                         <div class="modal-body container">
                             <div>
+                                <!--did you get the irony... 'graduation'... haha-->
                                 <iframe src="https://open.spotify.com/embed/album/5fPglEDz9YEwRgbLRvhCZy?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
                         </div>
