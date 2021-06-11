@@ -7,6 +7,266 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/c864c7f0e6.js" crossorigin="anonymous"></script>
+    
+    <!--Internal Style Sheets-->
+    <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="kanban.css">
     <title>DECO2017</title>
 </head>
+<body>
+    <!--Top Nav Bar-->
+    <ul id="top-nav">
+        <h3>Hello Katie!</h3>
+        <div>
+            <li><a>Workouts</a></li>
+            <li><a>Settings</a></li>
+            <li><a>Log Off</a></li>
+        </div>
+      </ul>
+      <!--Bootstrap presets for layout-->
+      <div class="row">
+        <!--Weekly stats section-->
+        <section class="col cont-nr">
+            
+            <header>
+                <h4>Weekly Stats</h4>
+            </header>
+              <div id="progress-bar-container">
+                  <div>
+                      <div class="progress-bar">
+                          <div id="task-complete"></div>
+                      </div>
+                      <p class="stats-text">50% of tasks completed</p>
+                  </div>
+                  <div>
+                      <div class="progress-bar">
+                          <div id="study-time"></div>
+                      </div>
+                      <p class="stats-text">32% goal study time</p>
+                  </div>
+                  <div>
+                      <div class="progress-bar">
+                          <div id="progress"></div>
+                      </div>
+                      <p class="stats-text">50% of tasks completed</p>
+                  </div>
+                </div>
+        </section>
+        <!--To Do List section-->
+        <section class="col cont-nr"> 
+                <!-- Modal for to do list-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div id="todolist-header">
+                            <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
+                            <h5>To Do List</h5>
+                        </div>
+                        <div class="modal-body container">
+                            <div  id="todolist-content" class="row">
+                                <div class="col modal-lists">
+                                    <div>
+                                        <h3>Today</h3>
+                                        <ul id="today">
+    
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3>Later</h3>
+                                        <ul id="tomorrow"></ul>
+                                    </div>
+                                </div>
+                                <div class="col" id = "input-todolist"> 
+                                    <input type="text" id="checkbox-input">
+                                    <button class= "secondary-button" onClick="addElement()">+ Add Task</button>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <header>
+                <h4>To Do List</h4>
+            </header>
+            <div class="day-container">
+                <p><strong>Today</strong></p>
+                    <ul class="to-do-container">
+                        <li>
+                            <input type="checkbox">
+                            <div>
+                                <p>Complete 30mins of prescribed readings</p>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="checkbox">
+                            <div>
+                                <p>Submit DECO2017 A3</p>
+                            </div>
+                        </li>
+                    </ul>
+                    </div>
+            <div class = "day-container">          
+                <ul class="to-do-container">
+                        <li>
+                            <input type="checkbox">
+                            <div>
+                                <p>Complete 30mins of prescribed readings</p>
+                            </div>
+                        </li>
+                        <li>
+                            <input type="checkbox">
+                            <div>
+                                <p>Prepare for week 10 (DECO2014)</p>
+                            </div>
+                        </li>
+                </ul>
+             </div>
+             <div id="button-todolist">
+                <!-- Button trigger modal -->
+                <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        View All
+                </button>
+            </div>
+        </section>
+        <!--Timing Section-->
+        <section class="col cont-nr">
+            <div class= "row" id="timing-container">
+                <ul class= "col" id="title-start-workout">
+                    <li><h2>Start</h2></li>
+                    <li><h2>Workout</h2></li>
+                </ul>
+                <div class="col">
+                    <div id="clock">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Section Inc. Kanban, Reading List, Pomodoro-->
+        <section class= "col smaller-cont-nr">
+            <!--Kanban Board-->
+            <section class="cont-nr2">
+            <!--Kanban Modal-->
+            <div class="modal fade" id="kanbanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div id="kanban-header">
+                            <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
+                            <h5>Kanban Board</h5>
+                        </div>
+                        <div class= "kanbanApp">
+                            <div class="kanbanLists">
+                                <div class="kanban-list">
+                                    <div class= "kanban-list-item" draggable="true">List Item</div>
+                                    <div class= "kanban-list-item" draggable="true">List Item2</div>
+                                    <div class= "kanban-list-item" draggable="true">List Item3</div>
+                                </div>
+                                <div class="kanban-list"></div>
+                                <div class="kanban-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header>
+                <!-- Button trigger modal -->
+                <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#kanbanModal">
+                    My Kanban
+            </button>
+            </header>
+            </section>
+            <!--Pomodoro-->
+            <section class="cont-nr2">
+                <div onclick = "template()" class="modal fade" id="pomodoroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div id="pomodoro-modal">
+                            <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
+                            <h5 id ="pomodoroHeading">Pomodoro Timer</h5>
+                        </div>
+                        <div class="modal-body container">
+                           <div class = "container pomodoroTimer">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <h4 id="minutes"></h4>
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>:</h4>
+                                    </div>
+                                    <div class="col-5">
+                                        <h4 id="seconds"></h4>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <!--Start and Reset Buttons-->
+                            <div class= "container d-flex justify-content-center align-items-center my-5">
+                                <button class = "btn" onclick="startPT()"><i class="fas fa-play fa-2x"></i></button>
+                                <a href="index.html"><i class="fas fa-redo fa-2x"></i></a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <!--Modal Button Trigger-->
+            <header>
+                <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#pomodoroModal">
+                    Pomodoro
+                </button>
+            </header>
+            </section>
+            <!--Reading List-->
+            <section class="cont-nr2">
+                <div class="modal fade" id="readingListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div id="dictionary-button">
+                            <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
+                            <h5>Dictionary</h5>
+                        </div>
+                        <div class="modal-body container">
+                            <div>
+                                <p>Hello</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <!--Button Trigger Dictionary Modal-->
+            <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#readingListModal">
+                Dictionary
+            </button>
+            </section>
+            <!--Calendar-->
+            <section class="cont-nr2">
+                <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div id="dictionary-button">
+                            <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
+                            <h5>Calendar</h5>
+                        </div>
+                        <div class="modal-body container">
+                            <div>
+                                <p>Hello</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <header>
+                    <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#calendarModal">
+                        Calendar
+                    </button>
+                </header>
+            </section>
+        </section>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="timer.js"></script>
+    <script src="todolist.js"></script>
+    <script src="kanban.js"></script>
+</body>
+</html>

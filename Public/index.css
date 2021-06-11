@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+/* Navbar styling */
+body {
+  background-color: #f2762e;
+  padding: 1em;
+}
+#top-nav {
+  margin-bottom: 1em;
+}
+#top-nav > div {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#top-nav > h3 {
+  font-size: 2.5em;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+
+#top-nav > div > li > a {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 500;
+}
+
+/* Weekly Stats Styling */
+
+/* Progress Bars */
+
+.cont-nr {
+  background-color: white;
+  width: 300px;
+  padding: 1em;
+  border-radius: 5px;
+  margin: 0em 1em 1em 1em;
+}
+
+.cont-nr > header > h4 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+.progress-bar {
+  background-color: #dedede;
+  margin: auto;
+  width: 200px;
+  height: 20px;
+  border-radius: 9px;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+#task-complete {
+  background-color: #f23030;
+  width: 50%;
+  height: 20px;
+  border-radius: 9px;
+}
+#study-time {
+  background-color: #f2d338;
+  width: 32%;
+  height: 20px;
+  border-radius: 9px;
+  justify-content: center;
+}
+#progress {
+  background-color: #25c7d9;
+  width: 90%;
+  height: 20px;
+  border-radius: 9px;
+  justify-content: center;
+}
+
+.stats-text {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+/* To Do List */
+
+.day-container {
+  padding-bottom: 0.5em;
+}
+
+.day-container > p {
+  padding-bottom: 0.5em;
+}
+
+.to-do-container > li {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.to-do-container > li > div {
+  margin-left: 20px;
+}
+
+/* Start Workout Styling  */
+
+#title-start-workout > li > h2 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+article {
+  width: 80px;
+  text-align: center;
+  background-color: #f2762e;
+  border-radius: 10px;
+  /* margin: 50px auto 20px; */
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px #ccc;
+}
+
+article h3 {
+  padding: 0.2em;
+  color: #fff;
+}
+article .count {
+  padding: 5px;
+}
+article #timer {
+  padding: 5px;
+  color: black;
+  background-color: aliceblue;
+  border-radius: 2px;
+}
+/* Smaller elements styling */
+.smaller-cont-nr {
+  width: 300px;
+}
+
+.cont-nr2 {
+  background-color: #25c7d9;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.cont-nr2 > header > h4 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+/* Modal styling for todolist */
+
+.modal-body {
+  background-color: #248ea6;
+}
+.modal-content {
+  background-color: #248ea6;
+  width: max-content;
+  margin: 2em;
+}
+#todolist-header {
+  width: 100%;
+}
+#todolist-header > button {
+  position: relative;
+  margin: 1em;
+}
+#todolist-header > h5 {
+  text-align: center;
+  margin-top: -0.8em;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.6em;
+}
+
+.back-button {
+  color: white;
+  border: none;
+  background: none;
+}
+
+/* Modal Trigger Button */
+
+#button-todolist {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.secondary-button {
+  background-color: #f23030;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 9px;
+  margin-top: 1em;
+  width: 100%;
+}
+
+/* Task Input Button */
+
+#checkbox-input {
+  border: none;
+  border-radius: 9px;
+  width: 100%;
+}
+
+/*Kanban Modal Styling */
+
+.kanbanApp {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-flow: column;
+  box-sizing: border-box;
+}
+
+.kanban-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.kanbanLists {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.kanbanLists > .kanban-list {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+  width: 100%;
+  min-width: 250px;
+  max-width: 350px;
+  height: 100%;
+  min-height: 50px;
+  background-color: #ccc;
+  margin: 0px 15px;
+  padding: 8px;
+  transition: all 0.2s linear;
+}
+
+.kanbanLists > .kanban-list > .kanban-list-item {
+  background-color: lightgray;
+  border-radius: 8px;
+  padding: 15px 20px;
+  text-align: center;
+  margin: 0px 4px;
+}
+
+#kanbanModal > .modal-content {
+  width: 90%;
+}
+
+/*Pomodoro Timer Modal */
+
+#pomodoroHeading {
+  color: #fff;
+  text-align: center;
+}
+
+.pomodoroTimer {
+  color: #fff;
+  text-align: center;
+  width: 20rem;
+  height: 20rem;
+  border: 5px solid #fff;
+  border-radius: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-play,
+.fa-redo {
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.fa-play:hover,
+.fa-redo:hover {
+  color: #fff;
+  border: 2px solid #fff;
+  transition: 0.3s ease;
+}
