@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="index.css"> 
     <link rel="stylesheet" href="kanban.css">
     <title>DECO2017</title>
+    <link rel="shortcut icon" type="image/png" href="book_favicon.png"/>
 </head>
 <body>
     <!--Top Nav Bar-->
@@ -177,14 +178,7 @@
                         <div class="modal-body container">
                            <div class = "container pomodoroTimer">
                                 <div class="row">
-                                    <div class="col-5">
-                                        <h4 id="minutes"></h4>
-                                    </div>
-                                    <div class="col-2">
-                                        <h4>:</h4>
-                                    </div>
-                                    <div class="col-5">
-                                        <h4 id="seconds"></h4>
+                                    <div class="col-5" id="pomodoro-time">
                                     </div>
                                 </div>
                             </div> 
@@ -195,7 +189,7 @@
 
                             <!--Start and Reset Buttons-->
                             <div class= "container d-flex justify-content-center align-items-center my-5">
-                                <button onclick = "startPT()" class = "btn"><i class="fas fa-play fa-2x"></i></button>
+                                <button onclick = "countdown()" class = "btn"><i class="fas fa-play fa-2x"></i></button>
                                 <a href="index.html"><i class="fas fa-redo fa-2x"></i></a>
                             </div>
                         </div>
