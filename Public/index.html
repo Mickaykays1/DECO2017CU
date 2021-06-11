@@ -108,20 +108,7 @@
                     </ul>
                     </div>
             <div class = "day-container">          
-                <ul class="to-do-container">
-                        <li>
-                            <input type="checkbox">
-                            <div>
-                                <p>Complete 30mins of prescribed readings</p>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="checkbox">
-                            <div>
-                                <p>Prepare for week 10 (DECO2014)</p>
-                            </div>
-                        </li>
-                </ul>
+
              </div>
              <div id="button-todolist">
                 <!-- Button trigger modal -->
@@ -132,13 +119,15 @@
         </section>
         <!--Timing Section-->
         <section class="col cont-nr">
-            <div class= "row" id="timing-container">
+            <div id="timing-container">
                 <ul class= "col" id="title-start-workout">
                     <li><h2>Start</h2></li>
                     <li><h2>Workout</h2></li>
                 </ul>
-                <div class="col">
-                    <div id="clock">
+                <div id="orange-box">
+                    <div id="timing-box">
+                        <div id="clock">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -178,7 +167,7 @@
             </section>
             <!--Pomodoro-->
             <section class="cont-nr2">
-                <div onclick = "template()" class="modal fade" id="pomodoroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="pomodoroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div id="pomodoro-modal">
@@ -200,9 +189,13 @@
                                 </div>
                             </div> 
 
+                            <div>
+                                <h3 id="done"></h3>
+                            </div>
+
                             <!--Start and Reset Buttons-->
                             <div class= "container d-flex justify-content-center align-items-center my-5">
-                                <button class = "btn" onclick="startPT()"><i class="fas fa-play fa-2x"></i></button>
+                                <button onclick = "startPT()" class = "btn"><i class="fas fa-play fa-2x"></i></button>
                                 <a href="index.html"><i class="fas fa-redo fa-2x"></i></a>
                             </div>
                         </div>
@@ -216,9 +209,9 @@
                 </button>
             </header>
             </section>
-            <!--Reading List-->
+            <!--Dictionary-->
             <section class="cont-nr2">
-                <div class="modal fade" id="readingListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="dictionaryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div id="dictionary-button">
@@ -227,37 +220,70 @@
                         </div>
                         <div class="modal-body container">
                             <div>
-                                <p>Hello</p>
+                                <form class = "form text-center my-5" width=80%>   
+                                <label class="form-label">Enter a Query</label>
+                                <input type="text" class="form-control text-center" autocomplete="off" id="word">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                                </form>
                             </div>
+
+                            <div class= "text-center">
+                                <p id="definition"></p>
+                                <div class="examples" width=100%></div>
+                            </div>
+
+                            <script>
+                                document.querySelector('.form').addEventListener('submit',(e)=>{
+
+                                e.preventDefault();
+                                const word = document.querySelector('#word').value;
+                                //const url = '`http://localhost:5000/${word}`'
+
+                                let def = document.querySelector('#defenition')
+                                let examples = document.querySelector('.examples')
+
+                                examples.innerHTML = ''
+
+                                fetch(url, {method:'GET', mode: 'cors'}).then(res=>res.json()).then((data)=>{
+                                    def.innerHTML = "Definition: " + data.results[0].lexicalEntries[0].entries[0].senses[0].defenitions
+                                    
+                                    let x = data.results[0].lexicalEntries[0].entries[0].senses[0].examples.forEach(element => {
+                                        examples.innerHTML +- (`<li>${element.text}</li>`)
+                                    })
+                                })
+                                document.querySelector('#word').value = '';
+                                })
+                            </script>
+
                         </div>
                       </div>
                     </div>
                   </div>
             <!--Button Trigger Dictionary Modal-->
-            <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#readingListModal">
+            <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#dictionaryModal">
                 Dictionary
             </button>
             </section>
-            <!--Calendar-->
+            <!--Music Player-->
             <section class="cont-nr2">
-                <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="musicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
-                        <div id="dictionary-button">
+                        <div id="music-player-button">
                             <button type="button" class="back-button" data-bs-dismiss="modal" aria-label="Close">Back</button>
-                            <h5>Calendar</h5>
+                            <h5>Study Beats</h5>
                         </div>
                         <div class="modal-body container">
                             <div>
-                                <p>Hello</p>
+                                <iframe src="https://open.spotify.com/embed/album/5fPglEDz9YEwRgbLRvhCZy?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 <header>
-                    <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#calendarModal">
-                        Calendar
+                    <button type="button" class="secondary-button" data-bs-toggle="modal" data-bs-target="#musicModal">
+                        Study Beats
                     </button>
                 </header>
             </section>
@@ -268,5 +294,7 @@
     <script src="timer.js"></script>
     <script src="todolist.js"></script>
     <script src="kanban.js"></script>
+    <script src="pomodoro.js"></script>
+    <script src="dictionary.js"></script>
 </body>
 </html>

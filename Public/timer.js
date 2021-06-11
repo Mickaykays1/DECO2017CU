@@ -6,7 +6,6 @@ let timerInterval = null;
 
 document.getElementById("clock").innerHTML = `
     <div>
-        hello there
         <div id="label">
         </div>
         <button onclick= "countdown()" type= "button" class="btn btn-light">Start</button>

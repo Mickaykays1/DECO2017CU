@@ -140,6 +140,19 @@ article #timer {
   background-color: aliceblue;
   border-radius: 2px;
 }
+
+#timing-box {
+  color: aliceblue;
+  padding: 5px;
+  text-align: center;
+}
+
+#orange-box {
+  background-color: #f2762e;
+  width: 100%;
+  height: 6em;
+}
+
 /* Smaller elements styling */
 .smaller-cont-nr {
   width: 300px;
@@ -302,4 +315,13 @@ article #timer {
   color: #fff;
   border: 2px solid #fff;
   transition: 0.3s ease;
+}
+
+.show_message {
+  display: block;
+  padding: 1rem 0;
+  color: orangered;
+  background: #fff;
+  border-radius: 0.5 rem;
+  transition: 0.5s ease;
 }
